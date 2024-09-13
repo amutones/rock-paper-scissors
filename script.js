@@ -19,10 +19,9 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-    let humChoice = prompt("Rock, paper, or scissors?");
-    humChoice = humChoice.toUpperCase();
-    let humCompare = 0;
-    switch (humChoice) {
+    let humanChoice = prompt("Rock, paper, or scissors?");
+    humanChoice = humanChoice.toUpperCase();
+    switch (humanChoice) {
         case "ROCK":
             return 1;
             break;
