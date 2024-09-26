@@ -1,9 +1,22 @@
 // console.log("Hello World");
 let humanScore = 0;
 let computerScore = 0;
-let gamesPlayed = 0;
-
+// let gamesPlayed = 0;
+let humanChoice = "";
+const GAMES_TO_WIN = 3;
+const div = document.createElement("div");
+const buttons = document.querySelectorAll("button");
 // playGame();
+
+buttons.forEach((button) => {
+    
+        button.addEventListener("click", () => {
+            playGame(button.id);
+            // playRound(getHumanChoice(button.id),getComputerChoice());
+        });  
+ 
+});
+
 
 function getComputerChoice() {
     let choice = Math.random();
@@ -16,25 +29,26 @@ function getComputerChoice() {
     else {
         return 3;
     }
-}
+};
 
-function getHumanChoice() {
-    let humanChoice = prompt("Rock, paper, or scissors?");
-    humanChoice = humanChoice.toUpperCase();
+function getHumanChoice(humanChoice) {
+    //let humanChoice = prompt("Rock, paper, or scissors?");
+    console.log(humanChoice);
+    //humanChoice = humanChoice.toUpperCase();
     switch (humanChoice) {
-        case "ROCK":
+        case "rock-button":
             return 1;
             break;
-        case "PAPER":
+        case "paper-button":
             return 2;
             break;
-        case "SCISSORS":
+        case "scissors-button":
             return 3;
             break;
         default:
             break;
     }
-}
+};
 
 function playRound(humanChoice, computerChoice) {
     console.log(humanChoice, computerChoice);
@@ -70,20 +84,27 @@ function playRound(humanChoice, computerChoice) {
         default:
             break;
     }
-    gamesPlayed++;
+    // gamesPlayed++;
 }
 
 
-function playGame() {
-    while (gamesPlayed < 5) {
-        playRound(getHumanChoice(), getComputerChoice());
-        console.log("Score: " + humanScore + " " + computerScore);
+function playGame(choice) {
+    
+    playRound(getHumanChoice(choice), getComputerChoice());
+    console.log("Score: " + humanScore + " " + computerScore);
+    
+
+    
+    if (humanScore === GAMES_TO_WIN) {
+        console.log("Congrats! You won!")
+        humanScore = 0;
+        computerScore = 0;
+    }
+    
+    if (computerScore === GAMES_TO_WIN){
+        console.log("Sorry! You lost!")
+        humanScore = 0;
+        computerScore = 0;
     }
 
-    if (humanScore > computerScore) {
-        console.log("Congrats! You won!")
-    }
-    else {
-        console.log("Sorry! You lost!")
-    }
 }
