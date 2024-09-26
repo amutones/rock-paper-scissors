@@ -13,6 +13,7 @@ const final = document.querySelector("#final");
 buttons.forEach((button) => {
     
         button.addEventListener("click", () => {
+            final.textContent = "";
             playGame(button.id);
             
         });  
