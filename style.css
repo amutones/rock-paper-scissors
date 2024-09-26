@@ -1,0 +1,33 @@
+body {
+    margin:0;
+    padding:0;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+ul {
+    list-style-type: none;
+    margin-inline-start: 0;
+    padding:0;
+    gap: 8px;
+    display:flex;
+    justify-content: center;
+}
+
+button {
+    border-radius: 5px;
+    background-color: dodgerblue;
+    border-color: cadetblue;
+}
+
+#round-result {
+    text-align: center;
+}
+#score-title {
+    text-align: center;
+}
+
+#final {
+    text-align: center;
+}
